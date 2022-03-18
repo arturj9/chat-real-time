@@ -28,8 +28,10 @@ while True:
     sala = client.recv(1024).decode()
     nome = client.recv(1024).decode()
     print(sala)
+
     if sala not in salas.keys():
         salas[sala] = []
+        
     salas[sala].append(client)
     print(f'{nome} se conectou na sala {sala}! INFO {addr}')
     broadcast(sala, f'{nome}: Entrou na sala.\n')
